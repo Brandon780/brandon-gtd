@@ -1,0 +1,17 @@
+{
+  "hash": "fd0a2b166a1a01323306eaf8959304f6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Análisis GTD con R\"\nformat: html\nauthor: Brandon\n---\n\n# Sinopsis\n\nEste documento muestra un análisis básico del Global Terrorism Database (GTD), que reúne datos sobre ataques terroristas en todo el mundo .  \nSe exploran cómo han cambiado los ataques con el tiempo, en qué países ocurren más y qué tipos de ataques son los más comunes.  \nLa idea es entender mejor esta información de forma clara y sencilla con quarto.\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n# Análisis básico del Global Terrorism Database (GTD)👨‍✈️\n\n::: panel-tabset\n## Resumen del dataset\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](about_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\n## Conteo de ataques por país\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\nTable: Top 10 países con más ataques\n\n|country_txt    |     n|\n|:--------------|-----:|\n|Iraq           | 24636|\n|Pakistan       | 14368|\n|Afghanistan    | 12731|\n|India          | 11960|\n|Colombia       |  8306|\n|Philippines    |  6908|\n|Peru           |  6096|\n|El Salvador    |  5320|\n|United Kingdom |  5235|\n|Turkey         |  4292|\n\n\n:::\n:::\n\n\n## Víctimas fatales por año\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](about_files/figure-html/unnamed-chunk-6-1.png){width=672}\n:::\n:::\n\n:::",
+    "supporting": [
+      "about_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

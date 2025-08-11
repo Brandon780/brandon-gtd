@@ -1,0 +1,108 @@
+---
+title: "Análisis GTD con R"
+format: html
+author: Brandon
+---
+
+# Sinopsis
+
+Este documento muestra un análisis básico del Global Terrorism Database (GTD), que reúne datos sobre ataques terroristas en todo el mundo .  
+Se exploran cómo han cambiado los ataques con el tiempo, en qué países ocurren más y qué tipos de ataques son los más comunes.  
+La idea es entender mejor esta información de forma clara y sencilla con quarto.
+
+
+
+
+```{r}
+#| echo: false       
+#| results: 'hide'   
+#| warning: false    
+#| message: false    
+
+library(tidyverse)
+
+# Leer datos desde ruta local (usa doble barra invertida en Windows)
+gtd <- read_csv("C:\\Users\\limco\\Documents\\DATA_C\\TERR\\globalterrorismdb_0718dist.csv")
+
+```
+
+```{r}
+#| echo: false       
+#| results: 'hide'   
+#| warning: false    
+#| message: false    
+
+
+gtd
+```
+
+```{r}
+#| echo: false       
+#| results: 'hide'   
+#| warning: false    
+#| message: false    
+
+
+# Ver nombres de columnas
+colnames(gtd)
+```
+
+# Análisis básico del Global Terrorism Database (GTD)👨‍✈️
+
+::: panel-tabset
+## Resumen del dataset
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+gtd %>%
+  group_by(iyear, attacktype1_txt) %>%
+  summarise(cantidad = n()) %>%
+  ggplot(aes(x = iyear, y = cantidad, color = attacktype1_txt)) +
+  geom_line() +
+  labs(title = "Ataques por año y tipo",
+       x = "Año",
+       y = "Número de ataques",
+       color = "Tipo de ataque") +
+  theme_minimal()
+```
+
+## Conteo de ataques por país
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+
+# Tabla con conteo de ataques por país
+gtd %>%
+  count(country_txt, sort = TRUE) %>%
+  head(10) %>%
+  knitr::kable(caption = "Top 10 países con más ataques")
+
+```
+
+## Víctimas fatales por año
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+
+# Gráfico de víctimas fatales por año
+gtd %>%
+  group_by(iyear) %>%
+  summarise(total_kills = sum(nkill, na.rm = TRUE)) %>%
+  ggplot(aes(x = iyear, y = total_kills)) +
+  geom_col(fill = "darkred") +
+  labs(title = "Víctimas fatales por año",
+       x = "Año",
+       y = "Total de víctimas fatales") +
+  theme_minimal()
+
+```
+:::

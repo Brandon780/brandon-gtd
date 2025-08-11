@@ -1,0 +1,18 @@
+project:
+  type: website
+  title: "Analisis GTD"
+
+website:
+  navbar:
+    right:
+      - text: "Pyhton"
+        href: index.qmd
+      - text: "R"
+        href: about.qmd
+      - icon: github
+        href: "https://github.com/Brandon780"
+        aria-label: GitHub
+      - icon: linkedin
+        href: "https://www.linkedin.com/in/brandonth/"
+
+        

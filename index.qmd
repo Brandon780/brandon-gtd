@@ -1,0 +1,74 @@
+---
+title: "Análisis GTD con PY"
+format: html
+author: Brandon
+---
+
+# Resumen
+
+En este análisis identificamos el tipo de ataque más frecuente en el Global Terrorism Database (GTD) y exploramos los países donde ocurre con mayor frecuencia.  
+El objetivo es comprender mejor la distribución geográfica de ese tipo de ataque de forma sencilla y clara.
+
+
+
+```{python}
+#| echo: false       
+#| results: 'hide'   
+#| warning: false    
+#| message: false 
+
+import pandas as pd
+
+gtd = pd.read_csv(r"C:\Users\limco\Documents\DATA_C\TERR\globalterrorismdb_0718dist.csv", encoding='ISO-8859-1')
+
+```
+
+Calculamos cuántos tipos diferentes de ataque hay registrados.
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+#  Cuántos tipos únicos hay en 'attacktype1_txt'
+tipos_ataque = gtd['attacktype1_txt'].nunique()
+print(f"Tipos únicos de ataque: {tipos_ataque}")
+
+```
+
+Identificamos el tipo de ataque más frecuente y la cantidad de registros
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+ataque_mas_frecuente = gtd['attacktype1_txt'].value_counts().idxmax()
+cantidad_mas_frecuente = gtd['attacktype1_txt'].value_counts().max()
+print(f"Tipo de ataque más frecuente: {ataque_mas_frecuente} ({cantidad_mas_frecuente} registros)")
+
+```
+
+Filtramos el dataset para quedarnos solo con los registros de ese tipo de ataque.
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+ataque_frecuente_data = gtd[gtd['attacktype1_txt'] == ataque_mas_frecuente]
+
+```
+
+
+Econtramos el pais con ese tipo de ataque.
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+pais_conteo = ataque_frecuente_data['country_txt'].value_counts().head(10)
+print("\nTop 10 países con este tipo de ataque:")
+print(pais_conteo)
+```
