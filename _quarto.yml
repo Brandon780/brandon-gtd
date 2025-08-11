@@ -1,11 +1,12 @@
 project:
   type: website
   title: "Analisis GTD"
+  output-dir: docs
 
 website:
   navbar:
     right:
-      - text: "Pyhton"
+      - text: "Python"
         href: index.qmd
       - text: "R"
         href: about.qmd
@@ -14,5 +15,3 @@ website:
         aria-label: GitHub
       - icon: linkedin
         href: "https://www.linkedin.com/in/brandonth/"
-
-        

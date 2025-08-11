@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Análisis GTD con PY",
+    "section": "",
+    "text": "Resumen\nEn este análisis identificamos el tipo de ataque más frecuente en el Global Terrorism Database (GTD) y exploramos los países donde ocurre con mayor frecuencia.\nEl objetivo es comprender mejor la distribución geográfica de ese tipo de ataque de forma sencilla y clara.\nCalculamos cuántos tipos diferentes de ataque hay registrados.\n\n\nTipos únicos de ataque: 9\n\n\nIdentificamos el tipo de ataque más frecuente y la cantidad de registros\n\n\nTipo de ataque más frecuente: Bombing/Explosion (88255 registros)\n\n\nFiltramos el dataset para quedarnos solo con los registros de ese tipo de ataque.\nEcontramos el pais con ese tipo de ataque.\n\n\n\nTop 10 países con este tipo de ataque:\ncountry_txt\nIraq              18286\nPakistan           7613\nAfghanistan        6245\nIndia              4825\nColombia           3128\nPeru               3115\nPhilippines        2213\nFrance             2092\nUnited Kingdom     2092\nEl Salvador        2055\nName: count, dtype: int64"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Análisis GTD con R",
+    "section": "",
+    "text": "Sinopsis\nEste documento muestra un análisis básico del Global Terrorism Database (GTD), que reúne datos sobre ataques terroristas en todo el mundo .\nSe exploran cómo han cambiado los ataques con el tiempo, en qué países ocurren más y qué tipos de ataques son los más comunes.\nLa idea es entender mejor esta información de forma clara y sencilla con quarto.\n\n\nAnálisis básico del Global Terrorism Database (GTD)👨‍✈️\n\nResumen del datasetConteo de ataques por paísVíctimas fatales por año\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTop 10 países con más ataques\n\n\ncountry_txt\nn\n\n\n\n\nIraq\n24636\n\n\nPakistan\n14368\n\n\nAfghanistan\n12731\n\n\nIndia\n11960\n\n\nColombia\n8306\n\n\nPhilippines\n6908\n\n\nPeru\n6096\n\n\nEl Salvador\n5320\n\n\nUnited Kingdom\n5235\n\n\nTurkey\n4292"
+  }
+]
