@@ -1,0 +1,35 @@
+/* Fondo negro general */
+body, .container-fluid {
+  background-color: #000000 !important;
+  color: #ff0000 !important;  /* rojo brillante */
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Títulos más llamativos */
+h1, h2, h3, h4, h5, h6 {
+  color:rgb(39, 36, 36); /* rojo neón */
+  text-shadow: 0 0 5pxrgb(102, 94, 91), 0 0 10pxrgb(71, 49, 44);
+}
+
+/* Links en rojo neón */
+a {
+  color: #ff5555;
+  text-decoration: none;
+}
+a:hover {
+  color:rgb(54, 31, 31);
+  text-decoration: underline;
+}
+
+/* Sidebar fondo y texto */
+.sidebar {
+  background-color: #111111 !important;
+  color: #ff0000 !important;
+}
+
+/* Barra de navegación */
+.navbar, .navbar-nav {
+  background-color: #111111 !important;
+  color: #ff0000 !important;
+}

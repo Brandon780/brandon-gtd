@@ -1,0 +1,149 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Análisis GTD con PY\"\n",
+        "format: html\n",
+        "author: Brandon\n",
+        "---\n",
+        "\n",
+        "# Resumen\n",
+        "\n",
+        "![](Terrorist.png)\n",
+        "\n",
+        "En este análisis identificamos el tipo de ataque más frecuente en el Global Terrorism Database (GTD) y exploramos los países donde ocurre con mayor frecuencia.\\\n",
+        "El objetivo es comprender mejor la distribución geográfica de ese tipo de ataque de forma sencilla y clara."
+      ],
+      "id": "2f0d5ccb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "results": "hide",
+        "message": false
+      },
+      "source": [
+        "#| echo: false\n",
+        "#| warning: false\n",
+        "\n",
+        "import pandas as pd\n",
+        "\n",
+        "gtd = pd.read_csv(r\"C:\\Users\\limco\\Documents\\DATA_C\\TERR\\globalterrorismdb_0718dist.csv\", encoding='ISO-8859-1')"
+      ],
+      "id": "04a71d0d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Calculamos cuántos tipos diferentes de ataque hay registrados."
+      ],
+      "id": "cb211804"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "message": false
+      },
+      "source": [
+        "#| echo: false\n",
+        "#| warning: false\n",
+        "\n",
+        "#  Cuántos tipos únicos hay en 'attacktype1_txt'\n",
+        "tipos_ataque = gtd['attacktype1_txt'].nunique()\n",
+        "print(f\"Tipos únicos de ataque: {tipos_ataque}\")"
+      ],
+      "id": "a8176948",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Identificamos el tipo de ataque más frecuente y la cantidad de registros"
+      ],
+      "id": "dc2c7e7a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "message": false
+      },
+      "source": [
+        "#| echo: false\n",
+        "#| warning: false\n",
+        "\n",
+        "ataque_mas_frecuente = gtd['attacktype1_txt'].value_counts().idxmax()\n",
+        "cantidad_mas_frecuente = gtd['attacktype1_txt'].value_counts().max()\n",
+        "print(f\"Tipo de ataque más frecuente: {ataque_mas_frecuente} ({cantidad_mas_frecuente} registros)\")"
+      ],
+      "id": "43f19635",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Filtramos el dataset para quedarnos solo con los registros de ese tipo de ataque."
+      ],
+      "id": "bffdacee"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "message": false
+      },
+      "source": [
+        "#| echo: false\n",
+        "#| warning: false\n",
+        "\n",
+        "ataque_frecuente_data = gtd[gtd['attacktype1_txt'] == ataque_mas_frecuente]"
+      ],
+      "id": "006b3771",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Econtramos el pais con ese tipo de ataque."
+      ],
+      "id": "add98f2b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "message": false
+      },
+      "source": [
+        "#| echo: false\n",
+        "#| warning: false\n",
+        "\n",
+        "pais_conteo = ataque_frecuente_data['country_txt'].value_counts().head(10)\n",
+        "print(\"\\nTop 10 países con este tipo de ataque:\")\n",
+        "print(pais_conteo)"
+      ],
+      "id": "94435945",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\limco\\AppData\\Local\\Programs\\Python\\Python313\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

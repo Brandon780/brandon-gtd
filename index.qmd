@@ -6,10 +6,10 @@ author: Brandon
 
 # Resumen
 
-En este análisis identificamos el tipo de ataque más frecuente en el Global Terrorism Database (GTD) y exploramos los países donde ocurre con mayor frecuencia.  
+![](Terrorist.png)
+
+En este análisis identificamos el tipo de ataque más frecuente en el Global Terrorism Database (GTD) y exploramos los países donde ocurre con mayor frecuencia.\
 El objetivo es comprender mejor la distribución geográfica de ese tipo de ataque de forma sencilla y clara.
-
-
 
 ```{python}
 #| echo: false       
@@ -59,7 +59,6 @@ Filtramos el dataset para quedarnos solo con los registros de ese tipo de ataque
 ataque_frecuente_data = gtd[gtd['attacktype1_txt'] == ataque_mas_frecuente]
 
 ```
-
 
 Econtramos el pais con ese tipo de ataque.
 
